@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>sukigroup</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --base-color-brand--transparent: rgba(0, 0, 0, 0);
+      --base-color-neutral--neutral-lightest: #f7f5f2;
+      --base-color-brand-beige--beige-light: #f6eee4;
+      --background-color--background-primary: #f2f2f5;
+      --base-color-brand-blue--blue-lighter: #e0e8f5;
+      --base-color-brand-red--red-lighter: #f5e0e0;
+    }
+
+    body {
+      font-family: 'Be Vietnam Pro', sans-serif;
+    }
+
+    .hero-gradient-overlay {
+      background-image: linear-gradient(180deg,
+          var(--base-color-brand--transparent) 60%,
+          var(--base-color-neutral--neutral-lightest)),
+        radial-gradient(circle farthest-corner at -50% 150%, #e20a1673, var(--base-color-brand--transparent) 60%),
+        radial-gradient(circle farthest-corner at 150% -50%, #2b5de873, var(--base-color-brand--transparent) 75%),
+        radial-gradient(circle farthest-corner at 60% 150%, var(--base-color-brand-beige--beige-light), var(--base-color-brand--transparent));
+    }
+
+    .image-overlay-layer {
+      position: absolute;
+      inset: 0;
+    }
+
+    .image-overlay-layer.is-aboutus {
+      background-color: #ffffff40;
+      background-image: linear-gradient(0deg, var(--base-color-brand--transparent), var(--background-color--background-primary));
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+    }
+  </style>
+</head>
+<body class="bg-[#f2f2f5]">
+  <nav class="w-full bg-[#dbdbdd] text-[#3d3e44]">
+    <div class="w-full mx-auto px-4 md:px-8 lg:px-40 py-2 flex justify-end">
+      <div class="flex items-center gap-4 text-[1rem] font-normal">
+        <button class="hover:text-black transition">DE</button>
+        <button class="hover:text-black transition">EN</button>
+        <button class="hover:text-black transition">FR</button>
+      </div>
+    </div>
+  </nav>
+  <header class="sticky top-0 z-[60] w-full backdrop-blur shadow-sm">
+    <div class="w-full mx-auto px-4 md:px-8 lg:px-40 py-5 flex items-center justify-between gap-6">
+      <div class="flex items-center gap-3">
+        <div>
+          <img src="./assets/images/logo_sukigroup.svg" width="150" class="hidden md:block">
+        </div>
+        <div class="md:hidden text-xl font-bold">
+          <span class="text-[#3d3e44] font-bold">suki</span><span class="text-[#6b7280] font-normal">group</span>
+        </div>
+        <div
+          class="hidden md:block text-2xl font-normal bg-[linear-gradient(125deg,#f6eee4,#f7a8b8_25%,#df4471_50%,#174dff_85%)] bg-clip-text text-transparent">
+          Make it simple.
+        </div>
+      </div>
+
+      <!-- Hamburger menu button (mobile only) -->
+      <button id="mobile-menu-toggle" class="md:hidden w-8 h-8 flex items-center justify-center relative z-50">
+        <span id="hamburger-line-1" class="absolute w-full h-0.5 bg-[#3d3e44] transition-all duration-300" style="top: 20%;"></span>
+        <span id="hamburger-line-2" class="absolute w-full h-0.5 bg-[#3d3e44] transition-all duration-300" style="top: 50%; margin-top: -1px;"></span>
+        <span id="hamburger-line-3" class="absolute w-full h-0.5 bg-[#3d3e44] transition-all duration-300" style="top: 80%;"></span>
+      </button>
+
+      <nav class="hidden md:flex flex-1 justify-end">
+        <ul class="flex items-center gap-10 text-[#3b3b3b] text-[1rem] font-medium">
+          <li class="relative group cursor-pointer">
+            <span
+              class="relative inline-flex items-center hover:text-black transition after:ml-2 after:inline-block after:w-2 after:h-2 after:border-r after:border-b after:border-current after:rotate-[45deg] after:transition-transform after:duration-150 group-hover:after:rotate-[-135deg]">
+              About Us
+            </span>
+            <div
+              class="invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-opacity duration-150 absolute left-0 mt-3 w-44 bg-white shadow-lg rounded-sm py-3 z-20">
+              <ul class="space-y-2 text-[0.95rem] text-[#3b3b3b]">
+                <li class="px-4 py-1 hover:bg-gray-50 cursor-pointer"><a href="#">Promise</a></li>
+                <li class="px-4 py-1 hover:bg-gray-50 cursor-pointer"><a href="#">Vision</a></li>
+                <li class="px-4 py-1 hover:bg-gray-50 cursor-pointer"><a href="#">Mission</a></li>
+                <li class="px-4 py-1 hover:bg-gray-50 cursor-pointer"><a href="#">Values</a></li>
+                <li class="px-4 py-1 hover:bg-gray-50 cursor-pointer"><a href="#">History</a></li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="relative group cursor-pointer">
+            <span
+              class="relative inline-flex items-center hover:text-black transition after:ml-2 after:inline-block after:w-2 after:h-2 after:border-r after:border-b after:border-current after:rotate-[45deg] after:transition-transform after:duration-150 group-hover:after:rotate-[-135deg]">
+              Companies
+            </span>
+            <div
+              class="invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-opacity duration-150 absolute left-0 mt-3 w-44 bg-white shadow-lg rounded-sm py-3 z-20">
+              <ul class="space-y-2 text-[0.95rem] text-[#3b3b3b]">
+                <li class="px-4 py-1 hover:bg-gray-50 cursor-pointer">suki.</li>
+                <li class="px-4 py-1 hover:bg-gray-50 cursor-pointer">VYNEX</li>
+                <li class="px-4 py-1 hover:bg-gray-50 cursor-pointer">FACIDO</li>
+                <li class="px-4 py-1 hover:bg-gray-50 cursor-pointer">FTV Asia</li>
+                <li class="px-4 py-1 hover:bg-gray-50 cursor-pointer">DBM.S</li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="relative group cursor-pointer">
+            <span
+              class="relative inline-flex items-center hover:text-black transition after:ml-2 after:inline-block after:w-2 after:h-2 after:border-r after:border-b after:border-current after:rotate-[45deg] after:transition-transform after:duration-150 group-hover:after:rotate-[-135deg]">
+              Career
+            </span>
+            <div
+              class="invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-opacity duration-150 absolute left-0 mt-3 w-44 bg-white shadow-lg rounded-sm py-3 z-20">
+              <ul class="space-y-2 text-[0.95rem] text-[#3b3b3b]">
+                <li class="px-4 py-1 hover:bg-gray-50 cursor-pointer">Open Positions</li>
+                <li class="px-4 py-1 hover:bg-gray-50 cursor-pointer">Apprenticeships</li>
+                <li class="px-4 py-1 hover:bg-gray-50 cursor-pointer">Internships</li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="relative group cursor-pointer">
+            <span
+              class="relative inline-flex items-center hover:text-black transition after:ml-2 after:inline-block after:w-2 after:h-2 after:border-r after:border-b after:border-current after:rotate-[45deg] after:transition-transform after:duration-150 group-hover:after:rotate-[-135deg]">
+              Our Impact
+            </span>
+            <div
+              class="invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-opacity duration-150 absolute left-0 mt-3 w-52 bg-white shadow-lg rounded-sm py-3 z-20">
+              <ul class="space-y-2 text-[0.95rem] text-[#3b3b3b]">
+                <li class="px-4 py-1 hover:bg-gray-50 cursor-pointer">Responsibility</li>
+                <li class="px-4 py-1 hover:bg-gray-50 cursor-pointer">Sustainability</li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="relative group cursor-pointer">
+            <span
+              class="relative inline-flex items-center hover:text-black transition after:ml-2 after:inline-block after:w-2 after:h-2 after:border-r after:border-b after:border-current after:rotate-[45deg] after:transition-transform after:duration-150 group-hover:after:rotate-[-135deg]">
+              News
+            </span>
+            <div
+              class="invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-opacity duration-150 absolute left-0 mt-3 w-40 bg-white shadow-lg rounded-sm py-3 z-20">
+              <ul class="space-y-2 text-[0.95rem] text-[#3b3b3b]">
+                <li class="px-4 py-1 hover:bg-gray-50 cursor-pointer">Press Releases</li>
+                <li class="px-4 py-1 hover:bg-gray-50 cursor-pointer">Feature Media</li>
+                <li class="px-4 py-1 hover:bg-gray-50 cursor-pointer">Events</li>
+              </ul>
+            </div>
+          </li>
+
+          <li>
+            <button
+              class="bg-[#18181b] text-white text-[0.95rem] font-semibold px-8 py-4 rounded-full shadow hover:bg-[#dbdbdd] hover:text-[#3d3e44] transition">
+              Contact
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Mobile Menu Overlay -->
+  <div id="mobile-menu" class="fixed inset-0 z-[55] hidden">
+    <div class="absolute left-0 right-0 bottom-0 transition-opacity duration-300" id="mobile-menu-backdrop" style="top: var(--header-height, 73px);"></div>
+    <div class="absolute left-0 right-0 w-full bg-white shadow-xl flex flex-col transform transition-transform duration-300 -translate-y-full z-[55]" id="mobile-menu-panel">
+      <!-- Menu Links -->
+      <div class="bg-[#ffffff] overflow-y-auto pb-6">
+        <nav class="px-6 pt-6">
+          <ul class="space-y-1">
+            <li class="mobile-menu-item">
+              <button class="w-full flex items-center justify-between py-4 text-[#3d3e44] text-base font-medium hover:text-black transition">
+                <span>About Us</span>
+                <span class="text-xs transition-transform duration-200">▼</span>
+              </button>
+              <ul class="hidden pl-4 pt-2 pb-2 space-y-1">
+                <li><a href="#" class="block py-2 text-sm text-[#6b7280] hover:text-[#3d3e44] transition">Promise</a></li>
+                <li><a href="#" class="block py-2 text-sm text-[#6b7280] hover:text-[#3d3e44] transition">Vision</a></li>
+                <li><a href="#" class="block py-2 text-sm text-[#6b7280] hover:text-[#3d3e44] transition">Mission</a></li>
+                <li><a href="#" class="block py-2 text-sm text-[#6b7280] hover:text-[#3d3e44] transition">Values</a></li>
+                <li><a href="#" class="block py-2 text-sm text-[#6b7280] hover:text-[#3d3e44] transition">History</a></li>
+              </ul>
+            </li>
+            <li class="mobile-menu-item">
+              <button class="w-full flex items-center justify-between py-4 text-[#3d3e44] text-base font-medium hover:text-black transition">
+                <span>Companies</span>
+                <span class="text-xs transition-transform duration-200">▼</span>
+              </button>
+              <ul class="hidden pl-4 pt-2 pb-2 space-y-1">
+                <li><a href="#" class="block py-2 text-sm text-[#6b7280] hover:text-[#3d3e44] transition">suki.</a></li>
+                <li><a href="#" class="block py-2 text-sm text-[#6b7280] hover:text-[#3d3e44] transition">VYNEX</a></li>
+                <li><a href="#" class="block py-2 text-sm text-[#6b7280] hover:text-[#3d3e44] transition">FACIDO</a></li>
+                <li><a href="#" class="block py-2 text-sm text-[#6b7280] hover:text-[#3d3e44] transition">FTV Asia</a></li>
+                <li><a href="#" class="block py-2 text-sm text-[#6b7280] hover:text-[#3d3e44] transition">DBM.S</a></li>
+              </ul>
+            </li>
+            <li class="mobile-menu-item">
+              <button class="w-full flex items-center justify-between py-4 text-[#3d3e44] text-base font-medium hover:text-black transition">
+                <span>Career</span>
+                <span class="text-xs transition-transform duration-200">▼</span>
+              </button>
+              <ul class="hidden pl-4 pt-2 pb-2 space-y-1">
+                <li><a href="#" class="block py-2 text-sm text-[#6b7280] hover:text-[#3d3e44] transition">Open Positions</a></li>
+                <li><a href="#" class="block py-2 text-sm text-[#6b7280] hover:text-[#3d3e44] transition">Apprenticeships</a></li>
+                <li><a href="#" class="block py-2 text-sm text-[#6b7280] hover:text-[#3d3e44] transition">Internships</a></li>
+              </ul>
+            </li>
+            <li class="mobile-menu-item">
+              <button class="w-full flex items-center justify-between py-4 text-[#3d3e44] text-base font-medium hover:text-black transition">
+                <span>Our Impact</span>
+                <span class="text-xs transition-transform duration-200">▼</span>
+              </button>
+              <ul class="hidden pl-4 pt-2 pb-2 space-y-1">
+                <li><a href="#" class="block py-2 text-sm text-[#6b7280] hover:text-[#3d3e44] transition">Responsibility</a></li>
+                <li><a href="#" class="block py-2 text-sm text-[#6b7280] hover:text-[#3d3e44] transition">Sustainability</a></li>
+              </ul>
+            </li>
+            <li class="mobile-menu-item">
+              <button class="w-full flex items-center justify-between py-4 text-[#3d3e44] text-base font-medium hover:text-black transition">
+                <span>News</span>
+                <span class="text-xs transition-transform duration-200">▼</span>
+              </button>
+              <ul class="hidden pl-4 pt-2 pb-2 space-y-1">
+                <li><a href="#" class="block py-2 text-sm text-[#6b7280] hover:text-[#3d3e44] transition">Press Releases</a></li>
+                <li><a href="#" class="block py-2 text-sm text-[#6b7280] hover:text-[#3d3e44] transition">Featured Media</a></li>
+                <li><a href="#" class="block py-2 text-sm text-[#6b7280] hover:text-[#3d3e44] transition">Events</a></li>
+              </ul>
+            </li>
+          </ul>
+          
+          <!-- Contact Button -->
+          <div class="mt-6">
+            <button class="w-full bg-[#1f1f23] text-white text-base font-semibold py-4 rounded-full hover:bg-[#3a3a40] transition">
+              Contact
+            </button>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <section class="relative w-full min-h-[80vh] overflow-hidden">
+      <!-- Background video -->
+      <video class="absolute inset-0 w-full h-full object-cover" autoplay muted loop playsinline>
+        <source src="./assets/videos/placeholder-video-transcode.webm" type="video/webm">
+        Your browser does not support the video tag.
+      </video>
+
+      <!-- Additional video overlay (Tailwind utilities) -->
+      <div
+        class="absolute inset-0 z-[1] opacity-95 [background-image:linear-gradient(180deg,var(--base-color-brand--transparent)_60%,var(--base-color-neutral--neutral-lightest)),radial-gradient(circle_farthest-corner_at_-50%_150%,#e20a1673,var(--base-color-brand--transparent)_60%),radial-gradient(circle_farthest-corner_at_150%_-50%,#2b5de873,var(--base-color-brand--transparent)_75%),radial-gradient(circle_farthest-corner_at_60%_150%,var(--base-color-brand-beige--beige-light),var(--base-color-brand--transparent))]">
+      </div>
+
+      <!-- Existing gradient overlay -->
+      <div class="hero-gradient-overlay absolute inset-0 opacity-95"></div>
+
+      <!-- Content -->
+        <div class="relative z-10 flex flex-col items-center justify-center text-center px-4 md:px-8 lg:px-40 min-h-[80vh]">
+         <h1 class="text-[#3d3e44] text-5xl md:text-7xl lg:text-8xl font-extrabold leading-tight drop-shadow-md">
+          We are sukigroup
+        </h1>
+         <p class="mt-8 max-w-3xl text-[#3d3e44] text-base md:text-lg lg:text-2xl font-normal leading-[2.4] drop-shadow">
+          With 5 operating companies, 14 entities worldwide, 17 locations, over 120 years of experience, 1,000 engaged employees and a range of 60,000 products, we supply millions of people across Europe with DIY and craftsmen products. Our products help them to build, renovate, repair and beautify their homes, flats, gardens and favorite places.
+        </p>
+        <button
+          class="mt-10 px-10 py-4 rounded-full border border-[#1e1f22] bg-transparent text-[#1e1f22] font-semibold text-sm md:text-base shadow-md hover:bg-white hover:border-white transition">
+          Learn more
+        </button>
+      </div>
+    </section>
+
+    <!-- Companies / Partners section -->
+    <section class="w-full py-8 bg-[#ffffff40]">
+      <div class="w-full mx-auto px-4 md:px-8 lg:px-40">
+        <div class="w-full flex flex-wrap items-center justify-center md:justify-between gap-8 md:gap-10">
+          <img src="./assets/images/logo_suki.svg" alt="suki"
+            class="w-[200px] grayscale hover:grayscale-0 transition duration-300">
+          <img src="./assets/images/logo_vynex.svg" alt="VYNEX"
+            class="w-[200px] grayscale hover:grayscale-0 transition duration-300">
+          <img src="./assets/images/logo_facido.svg" alt="FACIDO"
+            class="w-[200px] grayscale hover:grayscale-0 transition duration-300">
+          <img src="./assets/images/logo_ftv.svg" alt="FTV Asia"
+            class="w-[200px] grayscale hover:grayscale-0 transition duration-300">
+          <img src="./assets/images/logo_dbms.svg" alt="DBM.S"
+            class="w-[200px] grayscale hover:grayscale-0 transition duration-300">
+        </div>
+      </div>
+    </section>
+
+    <!-- Aura Products / Stats section -->
+    <section id="aura-products-section" class="relative w-full min-h-[80vh] overflow-hidden">
+      <!-- Background image + overlay -->
+      <div class="absolute inset-0 pointer-events-none">
+        <div id="aura-products-image"
+          class="h-full w-full bg-center bg-cover will-change-transform"
+          style="background-image: url('./assets/images/sukigroup_aura_products.jpg');">
+        </div>
+        <!-- Top gradient overlay -->
+        <div
+          class="absolute inset-0 [background-image:linear-gradient(0deg,var(--base-color-brand--transparent),var(--background-color--background-primary))]">
+        </div>
+        <div
+          class="absolute inset-0 bg-[#ffffff40] [background-image:linear-gradient(0deg,transparent,#f2f2f5)]">
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div class="relative z-10 w-full mx-auto px-4 md:px-8 lg:px-40 py-16 md:py-24 flex flex-col justify-center min-h-[80vh]">
+        <!-- Heading block (left aligned) -->
+        <div class="max-w-4xl w-full space-y-6">
+          <p class="text-xs md:text-lg text-transparent bg-[linear-gradient(125deg,#eee6bf,#e20a16_9%,#2b5de8_18%)] bg-clip-text">
+            Who is sukigroup
+          </p>
+          <h2
+            class="text-xl md:text-2xl lg:text-4xl font-semibold leading-tight text-[#22222a]">
+            A strong team developing innovative solutions – globally present, locally anchored and driven by growth through efficient processes and products.
+          </h2>
+        </div>
+
+        <!-- Stats row (centered horizontally) -->
+        <div class="mt-16 w-full flex flex-col items-center">
+          <div class="w-full max-w-8xl grid grid-cols-1 sm:grid-cols-3 gap-10 text-[#3d3e44]">
+            <div class="text-center">
+              <div
+                class="text-6xl md:text-9xl font-normal leading-none text-transparent bg-[linear-gradient(125deg,#e20a16,#2b5de8)] bg-clip-text">
+                1000
+              </div>
+              <div class="mt-3 text-sm md:text-xl font-semibold tracking-[0.02em]">
+                employees worldwide
+              </div>
+            </div>
+            <div class="text-center">
+              <div
+                class="text-6xl md:text-9xl font-normal leading-none text-transparent bg-[linear-gradient(125deg,#e20a16,#2b5de8)] bg-clip-text">
+                60k
+              </div>
+              <div class="mt-3 text-sm md:text-xl font-semibold tracking-[0.02em]">
+                number of SKUs
+              </div>
+            </div>
+            <div class="text-center">
+              <div
+                class="text-6xl md:text-9xl font-normal leading-none text-transparent bg-[linear-gradient(125deg,#e20a16,#2b5de8)] bg-clip-text">
+                17
+              </div>
+              <div class="mt-3 text-sm md:text-xl font-semibold tracking-[0.02em]">
+                locations worldwide
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Our companies / portfolio section -->
+    <section class="w-full bg-[#f2f2f5] pt-20 pb-0">
+      <!-- Heading -->
+      <div class="w-full mx-auto px-4 md:px-8 lg:px-40 pb-12">
+        <div
+          class="block text-xs md:text-lg text-transparent bg-[linear-gradient(125deg,#eee6bf,#e20a16_3%,#2b5de8_4%)] bg-clip-text">
+          Portfolio
+        </div>
+        <h2 class="mt-3 text-3xl md:text-4xl lg:text-7xl font-extrabold text-[#3d3e44]">
+          Our companies
+        </h2>
+      </div>
+
+      <!-- Companies strip -->
+      <div class="w-full flex flex-col sm:flex-row">
+        <!-- suki -->
+        <div class="group relative flex-1 min-h-[450px] sm:min-h-[420px] overflow-hidden bg-[#f20012] flex items-center justify-center transition-all duration-300">
+          <!-- Default state: logo (hidden on mobile, visible on desktop) -->
+          <div class="hidden sm:flex relative z-10 items-center justify-center group-hover:opacity-0 transition-opacity duration-300">
+            <img src="./assets/images/logo_suki_negative.svg" alt="suki"
+              class="w-[180px] sm:w-[220px]">
+          </div>
+          <!-- Content state: image + overlay + text (always visible on mobile, hover on desktop) -->
+          <div
+            class="absolute inset-0 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 translate-y-0 sm:translate-y-4 sm:group-hover:translate-y-0 transition-all duration-500 ease-out">
+            <div class="absolute inset-0 bg-center bg-cover"
+              style="background-image: url('./assets/images/sukigroup_image_showroom_3.webp');"></div>
+            <div class="absolute inset-0 bg-[#f20012]/70"></div>
+            <div class="relative z-10 h-full flex flex-col justify-between px-6 sm:px-8 py-8 text-white">
+              <div class="text-2xl">→</div>
+              <p class="mt-4 text-sm sm:text-base leading-relaxed">
+                International specialist in DIY assortments and services for retailers and professional partners across
+                Europe.
+              </p>
+              <div class="mt-6">
+                <a href="#"
+                  class="inline-flex items-center justify-center w-full rounded-full bg-white text-[#0041a8] text-sm sm:text-base font-semibold py-3 px-6 gap-2 hover:bg-[#f2f4ff] transition">
+                  <span class="text-lg">↗</span>
+                  <span>suki.com</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- VYNEX -->
+        <div class="group relative flex-1 min-h-[450px] sm:min-h-[420px] overflow-hidden bg-[#0c3e93] flex items-center justify-center transition-all duration-300">
+          <div class="hidden sm:flex relative z-10 items-center justify-center group-hover:opacity-0 transition-opacity duration-300">
+            <img src="./assets/images/logo_vynex_negative.svg" alt="VYNEX"
+              class="w-[190px] sm:w-[230px] drop-shadow-lg">
+          </div>
+          <div
+            class="absolute inset-0 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 translate-y-0 sm:translate-y-4 sm:group-hover:translate-y-0 transition-all duration-500 ease-out">
+            <div class="absolute inset-0 bg-center bg-cover"
+              style="background-image: url('./assets/images/sukigroup_image_admin_5.webp');"></div>
+            <div class="absolute inset-0 bg-[#004b99]/90"></div>
+            <div class="relative z-10 h-full flex flex-col justify-between px-6 sm:px-8 py-8 text-white">
+              <div class="text-2xl">→</div>
+              <p class="mt-4 text-sm sm:text-base leading-relaxed">
+                Designer and manufacturer of the ROCKET screw in France, specialising in fasteners and furniture
+                hardware for DIY and professional markets.
+              </p>
+              <div class="mt-6">
+                <a href="#"
+                  class="inline-flex items-center justify-center w-full rounded-full bg-white text-[#004b99] text-sm sm:text-base font-semibold py-3 px-6 gap-2 hover:bg-[#f2f4ff] transition">
+                  <span class="text-lg">↗</span>
+                  <span>vynex.fr</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- FACIDO -->
+        <div class="group relative flex-1 min-h-[450px] sm:min-h-[420px] overflow-hidden bg-[#0071a6] flex items-center justify-center transition-all duration-300">
+          <div class="hidden sm:flex relative z-10 items-center justify-center group-hover:opacity-0 transition-opacity duration-300">
+            <img src="./assets/images/logo_facido_negative.svg" alt="FACIDO"
+              class="w-[210px] sm:w-[250px]">
+          </div>
+          <div
+            class="absolute inset-0 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 translate-y-0 sm:translate-y-4 sm:group-hover:translate-y-0 transition-all duration-500 ease-out">
+            <div class="absolute inset-0 bg-center bg-cover"
+              style="background-image: url('./assets/images/sukigroup_image_production_4.webp');"></div>
+            <div class="absolute inset-0 bg-[#005f8c]/90"></div>
+            <div class="relative z-10 h-full flex flex-col justify-between px-6 sm:px-8 py-8 text-white">
+              <div class="text-2xl">→</div>
+              <p class="mt-4 text-sm sm:text-base leading-relaxed">
+                Service provider and business enabler for international DIY retailers with a focus on category
+                management and supply chain excellence.
+              </p>
+              <div class="mt-6">
+                <a href="#"
+                  class="inline-flex items-center justify-center w-full rounded-full bg-white text-[#005f8c] text-sm sm:text-base font-semibold py-3 px-6 gap-2 hover:bg-[#f2f4ff] transition">
+                  <span class="text-lg">↗</span>
+                  <span>facido.com</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- FTV Asia -->
+        <div class="group relative flex-1 min-h-[450px] sm:min-h-[420px] overflow-hidden bg-[#202f8c] flex items-center justify-center transition-all duration-300">
+          <div class="hidden sm:flex relative z-10 items-center justify-center group-hover:opacity-0 transition-opacity duration-300">
+            <img src="./assets/images/logo_ftv_negative.svg" alt="FTV Asia"
+              class="w-[210px] sm:w-[250px]">
+          </div>
+          <div
+            class="absolute inset-0 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 translate-y-0 sm:translate-y-4 sm:group-hover:translate-y-0 transition-all duration-500 ease-out">
+            <div class="absolute inset-0 bg-center bg-cover"
+              style="background-image: url('./assets/images/sukigroup_image_showroom_4.webp');"></div>
+            <div class="absolute inset-0 bg-[#1b2a7c]/90"></div>
+            <div class="relative z-10 h-full flex flex-col justify-between px-6 sm:px-8 py-8 text-white">
+              <div class="text-2xl">→</div>
+              <p class="mt-4 text-sm sm:text-base leading-relaxed">
+                Sourcing and quality specialist in Asia, connecting manufacturers with European retail partners through
+                reliable supply solutions.
+              </p>
+              <div class="mt-6">
+                <a href="#"
+                  class="inline-flex items-center justify-center w-full rounded-full bg-white text-[#1b2a7c] text-sm sm:text-base font-semibold py-3 px-6 gap-2 hover:bg-[#f2f4ff] transition">
+                  <span class="text-lg">↗</span>
+                  <span>ftv-asia.com</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DBM.S -->
+        <div class="group relative flex-1 min-h-[450px] sm:min-h-[420px] overflow-hidden bg-[#5aa3e8] flex items-center justify-center transition-all duration-300">
+          <div class="hidden sm:flex relative z-10 items-center justify-center group-hover:opacity-0 transition-opacity duration-300">
+            <img src="./assets/images/logo_dbms_negative.svg" alt="DBM.S"
+              class="w-[210px] sm:w-[250px]">
+          </div>
+          <div
+            class="absolute inset-0 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 translate-y-0 sm:translate-y-4 sm:group-hover:translate-y-0 transition-all duration-500 ease-out">
+            <div class="absolute inset-0 bg-center bg-cover"
+              style="background-image: url('./assets/images/sukigroup_image_discussion_01.webp');"></div>
+            <div class="absolute inset-0 bg-[#3577c8]/90"></div>
+            <div class="relative z-10 h-full flex flex-col justify-between px-6 sm:px-8 py-8 text-white">
+              <div class="text-2xl">→</div>
+              <p class="mt-4 text-sm sm:text-base leading-relaxed">
+                Specialist for customised merchandising and display solutions that present products at the point of sale
+                in the best possible way.
+              </p>
+              <div class="mt-6">
+                <a href="#"
+                  class="inline-flex items-center justify-center w-full rounded-full bg-white text-[#3577c8] text-sm sm:text-base font-semibold py-3 px-6 gap-2 hover:bg-[#f2f4ff] transition">
+                  <span class="text-lg">↗</span>
+                  <span>dbms.de</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stay in the loop / social channels section -->
+    <section class="w-full bg-[#f2f2f5] py-20">
+      <div class="w-full mx-auto px-4 md:px-8 lg:px-40 flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+        <!-- Left content -->
+        <div class="flex-1 max-w-xl">
+          <div
+            class="block text-xs md:text-xl text-transparent bg-[linear-gradient(125deg,#eee6bf,#e20a16_3%,#2b5de8_20%)] bg-clip-text">
+            Let's Connect
+          </div>
+          <h2 class="mt-4 text-3xl md:text-4xl lg:text-6xl font-extrabold text-[#3d3e44] leading-tight">
+            Stay in the loop<br class="hidden md:block" /> with sukigroup
+          </h2>
+          <p class="mt-6 text-sm md:text-base lg:text-lg text-[#4b4c52] leading-relaxed max-w-xl">
+            Get the latest updates, insights, and company news through our social media channels. Stay informed, engage
+            with our content, and be part of the conversation.
+          </p>
+          <button
+            class="mt-10 inline-flex items-center gap-3 rounded-full bg-[#1f1f23] text-white text-sm md:text-base font-semibold px-8 md:px-10 py-4 shadow hover:bg-[#3a3a40] transition">
+            <span class="text-lg">→</span>
+            <span>Discover our social channels</span>
+          </button>
+        </div>
+
+        <!-- Right visuals -->
+        <div class="flex-1 w-full flex justify-center lg:justify-end">
+          <div class="relative w-full max-w-full sm:max-w-lg lg:max-w-2xl">
+            <!-- Main image -->
+            <div class="overflow-hidden rounded-lg sm:rounded-xl">
+              <img src="./assets/images/sukigroup_image_admin_3.webp" alt="People collaborating"
+                class="aspect-square w-full h-full object-cover">
+            </div>
+
+            <!-- Small overlay photo -->
+            <div
+              class="absolute bottom-4 left-2 sm:bottom-10 sm:-left-4 md:-left-6 w-[25%] sm:w-[30%] md:w-[35%] shadow-[0_18px_50px_rgba(15,23,42,0.35)] bg-white p-1.5 sm:p-2 rotate-[-10deg]">
+              <div class="overflow-hidden">
+                <img src="./assets/images/blog_thumbnail_rocket-production_1.webp" alt="Production"
+                  class="w-full h-full object-cover aspect-square">
+              </div>
+            </div>
+
+            <!-- LinkedIn badge -->
+            <div
+              class="absolute top-16 right-2 sm:top-20 sm:right-[-1.5rem] md:right-[-2rem] w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 flex items-center justify-center rotate-[10deg]">
+              <img src="./assets/images/icon_linkedin.svg" alt="LinkedIn"
+                  class="w-full h-full object-cover aspect-square">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Serafin Group section -->
+    <section class="w-full bg-[#1f1f23] py-20 md:py-32">
+      <div class="w-full mx-auto px-4 md:px-8 lg:px-40 flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+        <!-- Left content -->
+        <div class="flex-1 max-w-2xl">
+          <p class="text-sm md:text-base text-[#9ca3af] mb-4">
+            Rooted in tradition, driving growth
+          </p>
+          <h2 class="text-3xl md:text-4xl lg:text-6xl font-extrabold text-white leading-tight mb-6">
+            We are a part of<br />Serafin Group
+          </h2>
+          <p class="text-base md:text-lg text-white leading-relaxed mb-8">
+            sukigroup is a part of Serafin Group, whose philosophy is based on more than 150 years of entrepreneurial tradition of its shareholding family. Serafin invests into companies with the aim to foster their long term development in accordance with all stakeholders.
+          </p>
+          <a href="#"
+            class="inline-flex items-center gap-3 rounded-full bg-white border border-[#e5e7eb] text-[#1f1f23] text-sm md:text-base font-semibold px-6 md:px-8 py-3 md:py-4 hover:bg-[#f9fafb] transition">
+            <span class="text-lg">↗</span>
+            <span>serafin-gruppe.de</span>
+          </a>
+        </div>
+
+        <!-- Right logo -->
+        <div class="flex-1 w-full flex justify-center lg:justify-end">
+          <div class="w-full max-w-md lg:max-w-lg">
+            <img src="./assets/images/logo_serafin.svg" alt="Serafin Group" class="w-full h-auto">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ready to connect CTA section -->
+    <section class="w-full py-20 md:py-32 [background-image:radial-gradient(circle_farthest-corner_at_100%_150%,var(--base-color-brand-blue--blue-lighter),var(--base-color-brand--transparent)),radial-gradient(circle_farthest-corner_at_50%_150%,var(--base-color-brand-beige--beige-light),var(--base-color-brand--transparent)),radial-gradient(circle_farthest-corner_at_-100%_150%,var(--base-color-brand-red--red-lighter),var(--base-color-brand--transparent))]">
+      <div class="w-full mx-auto px-4 md:px-8 lg:px-40 flex justify-center">
+        <div class="w-full max-w-8xl bg-white px-8 md:px-12 py-12 md:py-16 text-center">
+          <h2 class="text-3xl md:text-4xl lg:text-7xl font-extrabold text-[#3d3e44] mb-4">
+            Ready to connect?
+          </h2>
+          <p class="text-base md:text-2xl text-[#4b4c52] mb-8">
+            Let's craft something amazing together - reach out to start the conversation.
+          </p>
+          <button
+            class="inline-flex items-center justify-center rounded-full bg-[#1f1f23] text-white text-sm md:text-base font-semibold px-8 md:px-10 py-4 hover:bg-[#3a3a40] transition">
+            Contact Us Today
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="w-full pb-10 [background-image:radial-gradient(circle_farthest-corner_at_100%_150%,var(--base-color-brand-blue--blue-lighter),var(--base-color-brand--transparent)),radial-gradient(circle_farthest-corner_at_50%_150%,var(--base-color-brand-beige--beige-light),var(--base-color-brand--transparent)),radial-gradient(circle_farthest-corner_at_-100%_150%,var(--base-color-brand-red--red-lighter),var(--base-color-brand--transparent))]">
+    <div class="w-full mx-auto px-4 md:px-8 lg:px-40 py-12 md:py-16">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16">
+        <!-- Left side: Company Information -->
+        <div>
+          <div class="text-2xl font-bold text-[#3d3e44] mb-10">
+            <img src="./assets/images/logo_sukigroup.svg" alt="sukigroup" width="150">
+          </div>
+          <div class="text-xl font-semibold text-[#3d3e44] mb-4">suki.international GmbH</div>
+          <div class="text-sm text-[#6b7280] space-y-1 mb-4">
+            <div>Suki-Straße 1</div>
+            <div>54526 Landscheid</div>
+            <div>Germany</div>
+          </div>
+          <div class="text-sm text-[#6b7280] space-y-1">
+            <div>P +49 6575 71 - 0</div>
+            <div>E info@suki.com</div>
+          </div>
+        </div>
+
+        <!-- Right side: Link columns -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-16">
+          <!-- sukigroup Links -->
+          <div>
+            <h3 class="text-lg md:text-xl font-semibold text-[#3d3e44] mb-4">sukigroup</h3>
+            <ul class="space-y-2 text-base md:text-lg text-[#6b7280]">
+              <li><a href="#" class="hover:text-[#3d3e44] transition">About Us</a></li>
+              <li><a href="#" class="hover:text-[#3d3e44] transition">History</a></li>
+              <li><a href="#" class="hover:text-[#3d3e44] transition">Values</a></li>
+              <li><a href="#" class="hover:text-[#3d3e44] transition">Responsibility</a></li>
+              <li><a href="#" class="hover:text-[#3d3e44] transition">Sustainability</a></li>
+              <li><a href="#" class="hover:text-[#3d3e44] transition">Contact</a></li>
+            </ul>
+          </div>
+
+          <!-- Companies Links -->
+          <div>
+            <h3 class="text-lg md:text-xl font-semibold text-[#3d3e44] mb-4">Companies</h3>
+            <ul class="space-y-2 text-base md:text-lg text-[#6b7280]">
+              <li><a href="#" class="hover:text-[#3d3e44] transition">suki.</a></li>
+              <li><a href="#" class="hover:text-[#3d3e44] transition">VYNEX</a></li>
+              <li><a href="#" class="hover:text-[#3d3e44] transition">FACIDO</a></li>
+              <li><a href="#" class="hover:text-[#3d3e44] transition">FTV Asia</a></li>
+              <li><a href="#" class="hover:text-[#3d3e44] transition">DBM.S</a></li>
+            </ul>
+          </div>
+
+          <!-- Career Links -->
+          <div>
+            <h3 class="text-lg md:text-xl font-semibold text-[#3d3e44] mb-4">Career</h3>
+            <ul class="space-y-2 text-base md:text-lg text-[#6b7280]">
+              <li><a href="#" class="hover:text-[#3d3e44] transition">Open Positions</a></li>
+              <li><a href="#" class="hover:text-[#3d3e44] transition">Apprenticeships</a></li>
+              <li><a href="#" class="hover:text-[#3d3e44] transition">Internships</a></li>
+            </ul>
+          </div>
+
+          <!-- News Links -->
+          <div>
+            <h3 class="text-lg md:text-xl font-semibold text-[#3d3e44] mb-4">News</h3>
+            <ul class="space-y-2 text-base md:text-lg text-[#6b7280]">
+              <li><a href="#" class="hover:text-[#3d3e44] transition">Press Releases</a></li>
+              <li><a href="#" class="hover:text-[#3d3e44] transition">Featured Media</a></li>
+              <li><a href="#" class="hover:text-[#3d3e44] transition">Events</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Footer Bar -->
+    <div class="w-full border-t border-[#e5e7eb]">
+      <div class="w-full mx-auto px-4 md:px-8 lg:px-40 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="text-sm text-[#6b7280]">
+          © 2025 suki.international GmbH. All rights reserved.
+        </div>
+        <div class="flex items-center gap-6">
+          <a href="#" class="text-sm text-[#6b7280] hover:text-[#3d3e44] transition">Legal Notice</a>
+          <a href="#" class="text-sm text-[#6b7280] hover:text-[#3d3e44] transition">Privacy Policy</a>
+          <div class="flex items-center gap-3">
+            <a href="#" class="w-8 h-8 rounded-full bg-[#f3f4f6] flex items-center justify-center hover:bg-[#e5e7eb] transition">
+              <span class="text-[#6b7280] text-sm">f</span>
+            </a>
+            <a href="#" class="w-8 h-8 rounded-full bg-[#f3f4f6] flex items-center justify-center hover:bg-[#e5e7eb] transition">
+              <span class="text-[#6b7280] text-sm">ig</span>
+            </a>
+            <a href="#" class="w-8 h-8 rounded-full bg-[#f3f4f6] flex items-center justify-center hover:bg-[#e5e7eb] transition">
+              <span class="text-[#6b7280] text-sm">in</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const imageEl = document.getElementById('aura-products-image');
+      const sectionEl = document.getElementById('aura-products-section');
+      if (!imageEl || !sectionEl) return;
+
+      function onScroll() {
+        const rect = sectionEl.getBoundingClientRect();
+        const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+
+        if (rect.bottom >= 0 && rect.top <= windowHeight) {
+          const progress = rect.top / windowHeight;
+          const translateY = progress * -180;
+          imageEl.style.transform = 'translateY(' + translateY + 'px)';
+        }
+      }
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    })();
+
+    // Mobile menu toggle
+    (function () {
+      const menuToggle = document.getElementById('mobile-menu-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const menuBackdrop = document.getElementById('mobile-menu-backdrop');
+      const menuPanel = document.getElementById('mobile-menu-panel');
+      const header = document.querySelector('header');
+      const body = document.body;
+      const line1 = document.getElementById('hamburger-line-1');
+      const line2 = document.getElementById('hamburger-line-2');
+      const line3 = document.getElementById('hamburger-line-3');
+
+      // Calculate header height and set CSS variable
+      function updateHeaderHeight() {
+        if (header) {
+          const headerHeight = header.offsetHeight;
+          document.documentElement.style.setProperty('--header-height', headerHeight + 'px');
+          if (menuPanel) {
+            menuPanel.style.top = headerHeight + 'px';
+            menuPanel.style.height = 'calc(100vh - ' + headerHeight + 'px)';
+          }
+          if (menuBackdrop) {
+            menuBackdrop.style.top = headerHeight + 'px';
+          }
+        }
+      }
+
+      // Update hamburger icon to X
+      function transformToX() {
+        if (line1 && line2 && line3) {
+          line1.style.transform = 'rotate(45deg)';
+          line1.style.top = '50%';
+          line1.style.marginTop = '-1px';
+          line2.style.opacity = '0';
+          line3.style.transform = 'rotate(-45deg)';
+          line3.style.top = '50%';
+          line3.style.marginTop = '-1px';
+        }
+      }
+
+      // Reset hamburger icon
+      function resetToHamburger() {
+        if (line1 && line2 && line3) {
+          line1.style.transform = '';
+          line1.style.top = '';
+          line1.style.marginTop = '';
+          line2.style.opacity = '';
+          line3.style.transform = '';
+          line3.style.top = '';
+          line3.style.marginTop = '';
+        }
+      }
+
+      // Update on load and resize
+      updateHeaderHeight();
+      window.addEventListener('resize', updateHeaderHeight);
+
+      function openMenu() {
+        updateHeaderHeight();
+        mobileMenu.classList.remove('hidden');
+        body.style.overflow = 'hidden';
+        transformToX();
+        // Trigger slide-in animation from top
+        setTimeout(function () {
+          if (menuPanel) {
+            menuPanel.classList.remove('-translate-y-full');
+          }
+        }, 10);
+      }
+
+      function closeMenu() {
+        if (menuPanel) {
+          menuPanel.classList.add('-translate-y-full');
+        }
+        resetToHamburger();
+        setTimeout(function () {
+          mobileMenu.classList.add('hidden');
+          body.style.overflow = '';
+        }, 300);
+      }
+
+      if (menuToggle) {
+        menuToggle.addEventListener('click', function() {
+          if (mobileMenu.classList.contains('hidden')) {
+            openMenu();
+          } else {
+            closeMenu();
+          }
+        });
+      }
+
+      if (menuBackdrop) {
+        menuBackdrop.addEventListener('click', closeMenu);
+      }
+
+      // Close menu on escape key
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
+          closeMenu();
+        }
+      });
+
+      // Mobile submenu toggle
+      const menuItems = document.querySelectorAll('.mobile-menu-item');
+      menuItems.forEach(function(item) {
+        const button = item.querySelector('button');
+        const submenu = item.querySelector('ul');
+        const arrow = button.querySelector('span.text-xs');
+        
+        if (button && submenu) {
+          button.addEventListener('click', function(e) {
+            e.preventDefault();
+            const isOpen = !submenu.classList.contains('hidden');
+            
+            // Close all other submenus
+            menuItems.forEach(function(otherItem) {
+              if (otherItem !== item) {
+                const otherSubmenu = otherItem.querySelector('ul');
+                const otherArrow = otherItem.querySelector('button span.text-xs');
+                if (otherSubmenu) {
+                  otherSubmenu.classList.add('hidden');
+                }
+                if (otherArrow) {
+                  otherArrow.style.transform = '';
+                }
+              }
+            });
+            
+            // Toggle current submenu
+            if (isOpen) {
+              submenu.classList.add('hidden');
+              if (arrow) {
+                arrow.style.transform = '';
+              }
+            } else {
+              submenu.classList.remove('hidden');
+              if (arrow) {
+                arrow.style.transform = 'rotate(180deg)';
+              }
+            }
+          });
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
+
+

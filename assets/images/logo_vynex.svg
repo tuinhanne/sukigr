@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Ebene_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 566.93 255.12">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #1b2442;
+      }
+
+      .cls-2 {
+        fill: url(#Unbenannter_Verlauf_5);
+        stroke-width: .5px;
+      }
+
+      .cls-2, .cls-3 {
+        stroke: #fff;
+      }
+
+      .cls-3 {
+        stroke-width: .59px;
+      }
+
+      .cls-3, .cls-4 {
+        fill: none;
+      }
+
+      .cls-5 {
+        fill: #fff;
+      }
+
+      .cls-6 {
+        clip-path: url(#clippath-1);
+      }
+
+      .cls-7 {
+        fill: url(#pattern);
+      }
+
+      .cls-8 {
+        isolation: isolate;
+      }
+
+      .cls-9 {
+        fill: #b0ac9a;
+      }
+
+      .cls-10 {
+        clip-path: url(#clippath);
+      }
+    </style>
+    <clipPath id="clippath">
+      <path class="cls-4" d="M339.22,51.55l-14.38,24.75h-84.32l-13.93-24.74h-48.66l14.19,24.74h-12.69c-8.67,0-15.7,7.03-15.7,15.7v36.91c0,8.67,7.03,15.7,15.7,15.7h51.89l27.69,48.27h44.68l28.27-48.27h52.03c8.67,0,15.7-7.02,15.7-15.69h0v-36.92c0-8.67-7.03-15.7-15.7-15.7h-12.01l14.5-24.75h-47.27Z"/>
+    </clipPath>
+    <clipPath id="clippath-1">
+      <rect class="cls-1" x="159.52" y="48.99" width="244.17" height="147.22"/>
+    </clipPath>
+    <pattern id="pattern" x="0" y="0" width="293" height="177" patternTransform="translate(5155.75 -20387.4) scale(1.63 -1.62)" patternUnits="userSpaceOnUse" viewBox="0 0 293 177">
+      <g>
+        <rect class="cls-4" width="293" height="177"/>
+        <image class="cls-8" width="293" height="177" transform="translate(0 177) scale(1 -1)" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASUAAACxCAYAAACC56uWAAAACXBIWXMAAAsSAAALEgHS3X78AAADDklEQVR4nO3du3FVMRRAUcnjCtwSNVEFNbklOrAvAQQMEvHZM14rdHSjM9t6+uzneZ4FELD33i/THwHwt9d///D27cfEdwBf0M/378fflBKQYigBKYYSkGIoASmGEpBiKAEphhKQYigBKYYSkGIoASnHMZO1nM8F5iglIOUopf18TnwHwFpLKQEx1pSAFKUEpJxrSkoJGKSUgJTLr28fE98BsNZSSkCMoQSk2BIApCglIOWy0K2UgDlKCUi5rCk5kAvMUUpAylFKL359AwYpJSDFMRMgRSkBKa4uAVKUEpBiKAEp55YAr5kAg5QSkOLdNyBFKQEpRyk9tgQAg5QSkGJNCUhRSkCKoQSkGEpAynkdrocDgEFKCUjxGCWQopSAFEMJSLksdNs8CcxRSkCKO7qBFKUEpNg8CaQoJSDFmhKQopSAFMdMgBSlBKT49Q1IUUpAiqEEpBhKQIqhBKR49w1IUUpAis2TQIpSAlKsKQEpSglIMZSAFEMJSHEgF0hRSkCKX9+AFKUEpByl9OyJzwD4TSkBKYYSkGJLAJCilICUSynZEgDMUUpAijUlIEUpASmuwwVSlBKQcjmQq5SAOUoJSLGmBKQoJSBFKQEpSglIMZSAlPPmSVsCgEFKCUix0A2kKCUgxSVvQIpSAlKsKQEpSglIuawpDXwFwB9KCUg5d3RLJWCQUgJSDCUgxZYAIEUpASleyAVSlBKQYk0JSFFKQIrrcIEUpQSkuOQNSFFKQIoDuUCKUgJS7OgGUpQSkGIoASmOmQApSglIMZSAFEMJSLkcyHXMBJijlIAUL+QCKUoJSHF1CZCilIAUO7qBFKUEpBhKQIqhBKQYSkCKoQSkGEpAigO5QIpSAlKOUtpeMwEGKSUg5fJCLsAcpQSkeCEXSFFKQIpSAlKUEpDikjcgRSkBKYYSkHI5kOvfN2COUgJSvPsGpCglIMVQAlIMJSDFUAJSDCUgxVACUgwlIMVQAlIMJSDFUAJSDCUgxVACUgwlIMVQAlIMJSDFUAJS9uP+WyBi772VEgDA//wCpPhzdgUNjfcAAAAASUVORK5CYII="/>
+      </g>
+    </pattern>
+    <linearGradient id="Unbenannter_Verlauf_5" data-name="Unbenannter Verlauf 5" x1="282.08" y1="54.01" x2="280.27" y2="187.73" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#16428a"/>
+      <stop offset="1" stop-color="#1b2442"/>
+    </linearGradient>
+  </defs>
+  <path id="Pfad_157" class="cls-9" d="M387.9,82.82h-12.01l14.5-24.75h-47.26l-14.38,24.75h-84.32l-13.93-24.74h-48.66l14.19,24.74h-12.69c-8.67,0-15.7,7.03-15.7,15.7v36.91c0,8.67,7.03,15.7,15.7,15.7h51.89l27.69,48.27h44.68l28.27-48.27h52.03c8.67,0,15.7-7.03,15.7-15.7h0v-36.91c0-8.67-7.03-15.7-15.7-15.7"/>
+  <g class="cls-10">
+    <g>
+      <rect class="cls-1" x="159.52" y="48.99" width="244.17" height="147.22"/>
+      <g class="cls-6">
+        <rect id="Rechteck_59" class="cls-7" x="159.52" y="48.99" width="244.17" height="147.22"/>
+      </g>
+    </g>
+  </g>
+  <path id="Pfad_159" class="cls-3" d="M384,76.3h-12.01l14.5-24.75h-47.27l-14.38,24.75h-84.32l-13.93-24.74h-48.66l14.19,24.74h-12.69c-8.67,0-15.7,7.03-15.7,15.7v36.91c0,8.67,7.03,15.7,15.7,15.7h51.89l27.69,48.27h44.68l28.27-48.27h52.03c8.67,0,15.7-7.02,15.7-15.69h0v-36.92c0-8.67-7.03-15.7-15.7-15.7Z"/>
+  <path id="Pfad_159-2" data-name="Pfad_159" class="cls-2" d="M383.59,76.8h-12.01l14.5-24.75h-47.27l-14.38,24.75h-84.32l-13.93-24.74h-48.66l14.19,24.74h-12.69c-8.67,0-15.7,7.03-15.7,15.7v36.91c0,8.67,7.03,15.7,15.7,15.7h51.89l27.69,48.27h44.68l28.27-48.27h52.03c8.67,0,15.7-7.02,15.7-15.69h0v-36.92c0-8.67-7.03-15.7-15.7-15.7Z"/>
+  <g>
+    <path id="Pfad_160" class="cls-5" d="M204.48,77.31s-9.95-16.89-9.95-16.89h25.93l9.53,16.88h-25.51ZM320.49,143.67c-12.1,20.64-22.33,38.12-22.33,38.12h-32.13s-10.34-17.56-22.54-38.27l23.88-.03c7.5,13.3,13.13,23.28,13.13,23.28l.12.37s6.17-10.07,14.38-23.47h25.5ZM335.52,77.53l10.71-17.48h23.27l-10.23,17.44h-23.75"/>
+    <path id="Pfad_161" class="cls-5" d="M179.06,85.73h13.34l7.6,28.24h.11l7.66-28.24h12.95l-14.48,50.27h-12.92l-14.26-50.27Z"/>
+    <path id="Pfad_162" class="cls-5" d="M236.19,112.86l-15.04-27.13h13.58l7.99,14.94,7.87-14.94h13.58l-14.92,27.13v23.14h-13.06v-23.14Z"/>
+    <path id="Pfad_163" class="cls-5" d="M265.28,85.73h15.1l13.94,29.71h-.99l-.18-29.71h12.26v50.27l-12.8-.25-14.77-26.59v.74l-.25,26.1h-12.31v-50.27Z"/>
+    <path id="Pfad_164" class="cls-5" d="M310.02,85.73h27.64v10.61h-14.98v9.26h14.02v10.61h-14.02v9.16h15.59v10.62h-28.25v-50.27Z"/>
+    <path id="Pfad_165" class="cls-5" d="M354.57,109.57l-13.88-23.84h14.75l6.76,12.73,6.93-12.73h14l-14,23.84,15.15,26.43h-15.03l-7.8-12.81-7.74,12.81h-14.4l15.26-26.43Z"/>
+  </g>
+</svg>
