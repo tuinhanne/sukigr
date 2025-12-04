@@ -42,6 +42,22 @@
       -webkit-backdrop-filter: blur(10px);
       backdrop-filter: blur(10px);
     }
+
+    /* Partners auto-scroll track styling */
+    #partners-container {
+      cursor: grab;
+    }
+    #partners-track.grabbing {
+      cursor: grabbing;
+    }
+    /* hide scrollbar for modern browsers */
+    #partners-container::-webkit-scrollbar {
+      display: none;
+    }
+    #partners-container {
+      -ms-overflow-style: none; /* IE and Edge */
+      scrollbar-width: none; /* Firefox */
+    }
   </style>
 </head>
 <body class="bg-[#f2f2f5]">
@@ -277,20 +293,22 @@
       </div>
     </section>
 
-    <!-- Companies / Partners section -->
+    <!-- Companies / Partners section (auto-scroll track) -->
     <section class="w-full py-8 bg-[#ffffff40]">
       <div class="w-full mx-auto px-4 md:px-8 lg:px-40">
-        <div class="w-full flex flex-wrap items-center justify-center lg:justify-between gap-6 lg:gap-8">
-          <img src="./assets/images/logo_suki.svg" alt="suki"
-            class="w-[140px] lg:w-[160px] grayscale hover:grayscale-0 transition duration-300">
-          <img src="./assets/images/logo_vynex.svg" alt="VYNEX"
-            class="w-[140px] lg:w-[160px] grayscale hover:grayscale-0 transition duration-300">
-          <img src="./assets/images/logo_facido.svg" alt="FACIDO"
-            class="w-[140px] lg:w-[160px] grayscale hover:grayscale-0 transition duration-300">
-          <img src="./assets/images/logo_ftv.svg" alt="FTV Asia"
-            class="w-[140px] lg:w-[160px] grayscale hover:grayscale-0 transition duration-300">
-          <img src="./assets/images/logo_dbms.svg" alt="DBM.S"
-            class="w-[140px] lg:w-[160px] grayscale hover:grayscale-0 transition duration-300">
+        <div id="partners-container" class="w-full overflow-x-auto">
+          <div id="partners-track" class="flex items-center gap-6 lg:gap-8 whitespace-nowrap py-2">
+            <img src="./assets/images/logo_suki.svg" alt="suki"
+              class="inline-block w-[140px] lg:w-[160px] grayscale hover:grayscale-0 transition duration-300" draggable="false">
+            <img src="./assets/images/logo_vynex.svg" alt="VYNEX"
+              class="inline-block w-[140px] lg:w-[160px] grayscale hover:grayscale-0 transition duration-300" draggable="false">
+            <img src="./assets/images/logo_facido.svg" alt="FACIDO"
+              class="inline-block w-[140px] lg:w-[160px] grayscale hover:grayscale-0 transition duration-300" draggable="false">
+            <img src="./assets/images/logo_ftv.svg" alt="FTV Asia"
+              class="inline-block w-[140px] lg:w-[160px] grayscale hover:grayscale-0 transition duration-300" draggable="false">
+            <img src="./assets/images/logo_dbms.svg" alt="DBM.S"
+              class="inline-block w-[140px] lg:w-[160px] grayscale hover:grayscale-0 transition duration-300" draggable="false">
+          </div>
         </div>
       </div>
     </section>
@@ -943,6 +961,80 @@
       }, { threshold: 0.2 });
 
       io.observe(section);
+    })();
+
+    // Partners auto-scroll (right -> left), pause on hover, allow drag
+    (function() {
+      const container = document.getElementById('partners-container');
+      const track = document.getElementById('partners-track');
+      if (!container || !track) return;
+
+      // Duplicate track contents for seamless loop
+      track.innerHTML = track.innerHTML + track.innerHTML;
+
+      // Scrolling parameters
+      const pxPerSecond = 40; // speed in pixels per second (adjustable)
+      let paused = false;
+      let isDragging = false;
+      let rafId = null;
+      let last = 0;
+
+      function step(ts) {
+        if (!last) last = ts;
+        const dt = (ts - last) / 1000;
+        last = ts;
+
+        if (!paused && !isDragging) {
+          container.scrollLeft += pxPerSecond * dt;
+          const half = track.scrollWidth / 2;
+          if (container.scrollLeft >= half) {
+            container.scrollLeft -= half;
+          }
+        }
+
+        rafId = requestAnimationFrame(step);
+      }
+
+      // Pause on hover
+      container.addEventListener('mouseenter', () => { paused = true; });
+      container.addEventListener('mouseleave', () => { paused = false; last = 0; });
+
+      // Pointer-based dragging (mouse & touch)
+      let startX = 0;
+      let startScroll = 0;
+
+      track.addEventListener('pointerdown', (e) => {
+        isDragging = true;
+        paused = true;
+        startX = e.clientX;
+        startScroll = container.scrollLeft;
+        track.classList.add('grabbing');
+        track.setPointerCapture(e.pointerId);
+      });
+
+      track.addEventListener('pointermove', (e) => {
+        if (!isDragging) return;
+        const dx = e.clientX - startX;
+        container.scrollLeft = startScroll - dx;
+      });
+
+      track.addEventListener('pointerup', (e) => {
+        isDragging = false;
+        paused = false;
+        track.classList.remove('grabbing');
+        try { track.releasePointerCapture(e.pointerId); } catch (err) {}
+      });
+      track.addEventListener('pointercancel', () => {
+        isDragging = false;
+        paused = false;
+        track.classList.remove('grabbing');
+      });
+
+      // Prevent default image drag behavior
+      track.querySelectorAll('img').forEach(img => img.setAttribute('draggable', 'false'));
+
+      // Start animation
+      rafId = requestAnimationFrame(step);
     })();
     })();
   </script>
