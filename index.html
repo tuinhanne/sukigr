@@ -963,14 +963,27 @@
       io.observe(section);
     })();
 
-    // Partners auto-scroll (right -> left), pause on hover, allow drag
+    // Partners auto-scroll (right -> left), pause on hover, allow drag, infinite loop
     (function() {
       const container = document.getElementById('partners-container');
       const track = document.getElementById('partners-track');
       if (!container || !track) return;
 
-      // Duplicate track contents for seamless loop
-      track.innerHTML = track.innerHTML + track.innerHTML;
+      // Store original HTML for seamless loop
+      const originalHTML = track.innerHTML;
+      // Create seamless infinite loop by duplicating content many times
+      let duplicated = originalHTML;
+      for (let i = 0; i < 5; i++) {
+        duplicated += originalHTML;
+      }
+      track.innerHTML = duplicated;
+
+      // Calculate original item width after first render
+      let oneSetWidth = 0;
+      setTimeout(() => {
+        // Measure just the first set of items
+        oneSetWidth = container.scrollWidth / 6; // divided by 6 because we have 6 copies
+      }, 100);
 
       // Scrolling parameters
       const pxPerSecond = 40; // speed in pixels per second (adjustable)
@@ -984,20 +997,30 @@
         const dt = (ts - last) / 1000;
         last = ts;
 
-        if (!paused && !isDragging) {
+        if (!paused && !isDragging && oneSetWidth > 0) {
           container.scrollLeft += pxPerSecond * dt;
-          const half = track.scrollWidth / 2;
-          if (container.scrollLeft >= half) {
-            container.scrollLeft -= half;
+          
+          // Seamless infinite loop: when we reach the middle, jump back to start
+          // This creates a continuous loop effect
+          if (container.scrollLeft >= oneSetWidth * 3) {
+            container.scrollLeft = 0;
+            last = ts; // reset time to prevent jump
           }
         }
 
         rafId = requestAnimationFrame(step);
       }
 
-      // Pause on hover
-      container.addEventListener('mouseenter', () => { paused = true; });
-      container.addEventListener('mouseleave', () => { paused = false; last = 0; });
+      // Pause on hover (desktop only, not on mobile)
+      container.addEventListener('mouseenter', () => { 
+        if (window.innerWidth >= 768) { // md breakpoint
+          paused = true;
+        }
+      });
+      container.addEventListener('mouseleave', () => { 
+        paused = false; 
+        last = 0; 
+      });
 
       // Pointer-based dragging (mouse & touch)
       let startX = 0;
