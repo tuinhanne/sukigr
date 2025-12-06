@@ -968,45 +968,41 @@
         const oneSetWidth = container.scrollWidth / 6;
 
         const pxPerSecond = 40;
-        let paused = false;
         let isDragging = false;
         let rafId = null;
         let last = performance.now();
+        let dragOffset = 0;
+        let baseScrollLeft = 0;
 
         function step(ts) {
           if (!last) last = ts;
           const dt = (ts - last) / 1000;
           last = ts;
 
-          if (!paused && !isDragging) {
-            container.scrollLeft += pxPerSecond * dt;
+          if (!isDragging) {
+            baseScrollLeft += pxPerSecond * dt;
             
-            if (container.scrollLeft >= oneSetWidth * 3) {
-              container.scrollLeft = 0;
+            if (baseScrollLeft >= oneSetWidth * 3) {
+              baseScrollLeft = 0;
             }
+            
+            container.scrollLeft = baseScrollLeft;
+          } else {
+            // Khi đang drag, chỉ cập nhật baseScrollLeft dựa trên vị trí hiện tại
+            baseScrollLeft = container.scrollLeft;
           }
 
           rafId = requestAnimationFrame(step);
         }
-
-        container.addEventListener('mouseenter', () => { 
-          if (window.innerWidth >= 768) {
-            paused = true;
-          }
-        });
-        container.addEventListener('mouseleave', () => { 
-          paused = false; 
-          last = performance.now(); 
-        });
 
         let startX = 0;
         let startScroll = 0;
 
         track.addEventListener('pointerdown', (e) => {
           isDragging = true;
-          paused = true;
           startX = e.clientX;
           startScroll = container.scrollLeft;
+          baseScrollLeft = startScroll;
           track.classList.add('grabbing');
           track.setPointerCapture(e.pointerId);
         });
@@ -1015,20 +1011,21 @@
           if (!isDragging) return;
           const dx = e.clientX - startX;
           container.scrollLeft = startScroll - dx;
+          baseScrollLeft = container.scrollLeft;
         });
 
         track.addEventListener('pointerup', (e) => {
           isDragging = false;
-          paused = false;
-          track.classList.remove('grabbing');
+          baseScrollLeft = container.scrollLeft;
           last = performance.now();
+          track.classList.remove('grabbing');
           try { track.releasePointerCapture(e.pointerId); } catch (err) {}
         });
         track.addEventListener('pointercancel', () => {
           isDragging = false;
-          paused = false;
-          track.classList.remove('grabbing');
+          baseScrollLeft = container.scrollLeft;
           last = performance.now();
+          track.classList.remove('grabbing');
         });
 
         track.querySelectorAll('img').forEach(img => img.setAttribute('draggable', 'false'));
