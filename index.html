@@ -755,7 +755,6 @@
       onScroll();
     })();
 
-    // Mobile menu toggle
     (function () {
       const menuToggle = document.getElementById('mobile-menu-toggle');
       const mobileMenu = document.getElementById('mobile-menu');
@@ -767,7 +766,6 @@
       const line2 = document.getElementById('hamburger-line-2');
       const line3 = document.getElementById('hamburger-line-3');
 
-      // Calculate header height and set CSS variable
       function updateHeaderHeight() {
         if (header) {
           const headerHeight = header.offsetHeight;
@@ -782,7 +780,6 @@
         }
       }
 
-      // Update hamburger icon to X
       function transformToX() {
         if (line1 && line2 && line3) {
           line1.style.transform = 'rotate(45deg)';
@@ -795,7 +792,6 @@
         }
       }
 
-      // Reset hamburger icon
       function resetToHamburger() {
         if (line1 && line2 && line3) {
           line1.style.transform = '';
@@ -808,7 +804,6 @@
         }
       }
 
-      // Update on load and resize
       updateHeaderHeight();
       window.addEventListener('resize', updateHeaderHeight);
 
@@ -817,7 +812,6 @@
         mobileMenu.classList.remove('hidden');
         body.style.overflow = 'hidden';
         transformToX();
-        // Trigger slide-in animation from top
         setTimeout(function () {
           if (menuPanel) {
             menuPanel.classList.remove('-translate-y-full');
@@ -850,14 +844,12 @@
         menuBackdrop.addEventListener('click', closeMenu);
       }
 
-      // Close menu on escape key
       document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
           closeMenu();
         }
       });
 
-      // Mobile submenu toggle
       const menuItems = document.querySelectorAll('.mobile-menu-item');
       menuItems.forEach(function(item) {
         const button = item.querySelector('button');
@@ -869,7 +861,6 @@
             e.preventDefault();
             const isOpen = !submenu.classList.contains('hidden');
             
-            // Close all other submenus
             menuItems.forEach(function(otherItem) {
               if (otherItem !== item) {
                 const otherSubmenu = otherItem.querySelector('ul');
@@ -883,7 +874,6 @@
               }
             });
             
-            // Toggle current submenu
             if (isOpen) {
               submenu.classList.add('hidden');
               if (arrow) {
@@ -899,7 +889,6 @@
         }
       });
 
-    // Count-up on scroll for stats in #aura-products-section
     (function() {
       const section = document.getElementById('aura-products-section');
       const counters = section ? section.querySelectorAll('.count-to') : [];
@@ -944,10 +933,8 @@
         entries.forEach(entry => {
           if (entry.isIntersecting && !started) {
             started = true;
-            // Delay the start by ~1000ms as requested
             setTimeout(() => {
               counters.forEach(el => {
-                  // choose a duration based on magnitude (use data-target if available)
                   let dur = 1800;
                   const txt = (el.dataset.target || el.textContent || '').toString().trim();
                   if (/k/i.test(txt)) dur = 1400;
@@ -963,30 +950,23 @@
       io.observe(section);
     })();
 
-    // Partners auto-scroll (right -> left), pause on hover, allow drag, infinite loop
     (function() {
       const container = document.getElementById('partners-container');
       const track = document.getElementById('partners-track');
       if (!container || !track) return;
 
-      // Store original HTML for seamless loop
       const originalHTML = track.innerHTML;
-      // Create seamless infinite loop by duplicating content many times
       let duplicated = originalHTML;
       for (let i = 0; i < 5; i++) {
         duplicated += originalHTML;
       }
       track.innerHTML = duplicated;
 
-      // Calculate original item width after first render
-      let oneSetWidth = 0;
-      setTimeout(() => {
-        // Measure just the first set of items
-        oneSetWidth = container.scrollWidth / 6; // divided by 6 because we have 6 copies
-      }, 100);
+      void container.offsetWidth;
 
-      // Scrolling parameters
-      const pxPerSecond = 40; // speed in pixels per second (adjustable)
+      const oneSetWidth = container.scrollWidth / 6;
+
+      const pxPerSecond = 40;
       let paused = false;
       let isDragging = false;
       let rafId = null;
@@ -997,23 +977,20 @@
         const dt = (ts - last) / 1000;
         last = ts;
 
-        if (!paused && !isDragging && oneSetWidth > 0) {
+        if (!paused && !isDragging) {
           container.scrollLeft += pxPerSecond * dt;
           
-          // Seamless infinite loop: when we reach the middle, jump back to start
-          // This creates a continuous loop effect
           if (container.scrollLeft >= oneSetWidth * 3) {
             container.scrollLeft = 0;
-            last = ts; // reset time to prevent jump
+            last = ts;
           }
         }
 
         rafId = requestAnimationFrame(step);
       }
 
-      // Pause on hover (desktop only, not on mobile)
       container.addEventListener('mouseenter', () => { 
-        if (window.innerWidth >= 768) { // md breakpoint
+        if (window.innerWidth >= 768) {
           paused = true;
         }
       });
@@ -1022,7 +999,6 @@
         last = 0; 
       });
 
-      // Pointer-based dragging (mouse & touch)
       let startX = 0;
       let startScroll = 0;
 
@@ -1053,10 +1029,8 @@
         track.classList.remove('grabbing');
       });
 
-      // Prevent default image drag behavior
       track.querySelectorAll('img').forEach(img => img.setAttribute('draggable', 'false'));
 
-      // Start animation
       rafId = requestAnimationFrame(step);
     })();
     })();
